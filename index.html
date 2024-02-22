@@ -42,6 +42,70 @@
 	z-index:-10;
 	width:50%;
 	}
+	
+    .alert-box {
+        padding: 20px;
+        background-color: #007bff; /* Azul */
+        color: white; /* Texto blanco */
+        margin-bottom: 15px;
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+	
+
+    .custom-title {
+        background-color: #004085; /* Color de fondo para el título */
+        color: white; /* Color del texto */
+        padding: 10px;
+        border-radius: 5px 5px 0 0; /* Redondear solo las esquinas superiores */
+        text-align: left; /* Alineación del texto a la izquierda */
+        box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2); /* Sombra para el título y la caja */
+        margin-bottom: 0; /* Eliminar el margen inferior para pegar a la caja */
+    }
+    
+    .custom-box {
+        border: 1px solid #004085; /* Borde de la caja */
+        padding: 20px;
+        background-color: #f0f0f0; /* Color de fondo de la caja */
+        color: black; /* Color del texto de la caja */
+        border-radius: 0 0 5px 5px; /* Redondear solo las esquinas inferiores */
+        box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2); /* Sombra para el título y la caja */
+        margin-top: -5px; /* Ajuste para la sombra y pegar al título */
+    }
+
+
+    .combined-box {
+        display: flex;
+        align-items: center; /* Centrar verticalmente */
+        justify-content: space-between; /* Espacio entre texto e imagen */
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #f0f0f0; /* Color de fondo */
+        box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2); /* Sombra */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+    
+    .text-section {
+        width: 80%;
+    }
+    
+    .image-section {
+        width: 20%;
+        text-align: center; /* Centrar imagen y texto en itálico */
+    }
+    
+    .round-image {
+        width: 80%; /* Ajustar al tamaño deseado */
+        border-radius: 50%; /* Hacer la imagen redonda */
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); /* Sombra para la imagen */
+    }
+    
+    .caption-text {
+        font-style: italic;
+        font-size: smaller;
+        margin-top: 10px; /* Espacio entre la imagen y el texto */
+    }
+
 
 .circular--landscape img {
   width: auto;
@@ -59,6 +123,11 @@
   overflow: hidden;
   border-radius: 50%;
 }
+.texto-pequeno {
+        font-size: 0.75rem; /* Tamaño de letra más pequeño */
+}
+
+
 
 .circular--landscape2 img {
   width: auto;
@@ -100,6 +169,92 @@
             border-color: #00b398;
 			filter: drop-shadow( 4px 5px 5px #838383);
         }
+	
+		
+.timeline-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+.timeline {
+    display: inline-flex;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.timeline-item {
+    display: inline-block;
+    text-align: center;
+}
+
+.timeline-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-caption {
+    margin-top: 10px;
+    color: rgb(6, 6, 6);
+    font-size: 14px;
+}
+.timeline-item {
+    position: relative; /* Necesario para el posicionamiento absoluto de la tarjeta */
+}
+.timeline {
+    position: relative; /* Hace que el indicador se posicione relativamente a este contenedor */
+    /* Otros estilos de la línea de tiempo */
+}
+
+
+.info-card {
+    position: absolute;
+    bottom: 100%; /* Posiciona la tarjeta encima del ítem */
+    left: 500%; /* Centra la tarjeta */
+    transform: translateX(-50%); /* Ajuste fino del centrado */
+    width: 900px; /* Ancho de la tarjeta */
+    background-color: rgba(130, 125, 125, 0.77); /* Fondo de la tarjeta */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para la tarjeta */
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Oculta inicialmente la tarjeta */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s; /* Transición suave */
+}
+
+.timeline-item:hover .info-card {
+    opacity: 1; /* Muestra la tarjeta en hover */
+    visibility: visible;
+}
+
+/* Mejorar la legibilidad del texto sobre la imagen en hover */
+.timeline-item:hover .timeline-caption {
+    font-weight: bold;
+}
+.timeline-indicator {
+    font-size: 24px; /* Tamaño de la flecha */
+    color: #050505; /* Color de la flecha */
+    position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
+    right: 100px; /* Posición desde la derecha */
+    top: 300px; /* Posición desde la parte superior */
+    z-index: 10; /* Asegura que la flecha esté sobre otros elementos */
+    animation: bounce 1s infinite alternate; /* Animación opcional */
+}
+
+/* Animación opcional para llamar más la atención */
+@keyframes bounce {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-10px);
+    }
+}
+
+
 
 
 		</style>
@@ -138,35 +293,165 @@
 				</section>	
 
 				<section data-transition="zoom">
-					<h3>Introducción</h3>
+					<h3>Introducción 💡</h3>
 					<p>La toma de decisiones es un proceso crucial tanto para individuos como para
 					organizaciones, enfrentando decisiones difíciles con consecuencias significativas. Este
 					proceso se caracteriza por:</p>
 					
 						<div class="r-stack">
-							<p class="fragment fade-in-then-out" style="color:orange">Intereses en conflicto</p>
-							<p class="fragment fade-in-then-out">Elementos de incertidumbre</p>
-							<p class="fragment fade-in-then-out">Three</p>
-							<p class="fragment fade-in-then-out">Four</p>
+							<p class="fragment fade-in-then-out" style="color:rgb(255, 47, 0)">1. Intereses en conflicto</p>
+							<p class="fragment fade-in-then-out" style="color:rgb(102, 0, 255)">2. Elementos de incertidumbre</p>
+							<p class="fragment fade-in-then-out" style="color:rgb(230, 0, 255)">3. Involucramiento de distintas personas</p>
+							<p class="fragment fade-in-then-out" style="color:rgb(0, 255, 68)">4. Elementos medibles y difíciles de medir</p>
 						</div>
 					
 				</section>
-				<section>
-					<div id="left">
-
-						<img src="https://www.utadeo.edu.co/sites/tadeo/files/styles/multimedia_image/public/multimedia/images/gallery/bv7b1230-2.jpg?itok=al5_xeZT" width="700" height="450" >	
-						
-						</div>
-					<div id="right">
-
-						- You can place two graphs on a slide
-						- Or two columns of text
-						- These are all created with div elements
-						
-						</div>
-				</section>
-
+				<section data-transition="zoom">
+					<h3>Introducción 💡</h3>
+					
 				
+						
+								<div class="custom-title"> Barba Romero</div>
+								<div class="custom-box">
+									Tomar decisiones es una de las facetas más relevantes de cualquier puesto de responsabilidad.
+								</div>
+								<div>
+<p></p>
+								</div>
+								<div class="custom-title">Stanfford Beer</div>
+								<div class="custom-box">
+									El verdadero proceso de tomar decisiones involucra muchas personas y toda la estructura esta impregnada con retroalimentación.
+								</div>
+							<!-- Otras secciones de tu presentación -->
+					
+			
+					
+				</section>
+				
+				<section data-transition="zoom">
+					<h3>Introducción 💡</h3>
+							<div class="custom-title">Multiple Criteria Decision Making
+								 </div>
+							<div class="combined-box">
+								<div class="text-section">
+									“Cada vez es mas difícil ver el mundo que nos rodea de una forma unidimensional y
+usar solamente un criterio para juzgar lo que vemos”
+								</div>
+								<div class="image-section">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Professor_Milan_Zeleny.jpg" alt="Descripción" class="round-image">
+									<div class="caption-text" ><p class="texto-pequeno">Milan Zeleny</p></div>
+								</div>
+							</div>
+						</section>
+					
+						
+					
+						<section>
+							<div class="timeline-indicator">Siglo IV a.C. --------------------------------------------------------------→ 1926</div>
+							<div class="timeline">
+								<div class="timeline-item" data-year="Siglo IV a.C">
+									<img src="https://www.psicoactiva.com/wp-content/uploads/2017/10/aristoteles.jpg" alt="Aristoteles" class="timeline-image">
+									<p class="timeline-caption">Aristoteles</p>
+									<div class="info-card">
+										<h4>Siglo IV a.C - Aristoteles</h4>
+										<p>Define deseos racionales y preferencias.</p>
+									</div>
+								</div>
+						
+								<!-- Bernoulli -->
+								<div class="timeline-item" data-year="1738">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/ETH-BIB-Bernoulli%2C_Daniel_%281700-1782%29-Portrait-Portr_10971.tif_%28cropped%29.jpg" alt="Bernoulli" class="timeline-image">
+									<p class="timeline-caption">Bernoulli</p>
+									<div class="info-card">
+										<h4>1738 - Bernoulli</h4>
+										<p>Paradoja de san petesburgo.</p>
+									</div>
+								</div>
+						
+								<!-- B.Franklin -->
+								<div class="timeline-item" data-year="1772">
+									<img src="https://cdn.britannica.com/72/110272-159-A0A4BCB5/Benjamin-Franklin.jpg" alt="B.Franklin" class="timeline-image">
+									<p class="timeline-caption">B.Franklin</p>
+									<div class="info-card">
+										<h4>1772 - B.Franklin</h4>
+										<p>Algebra moral o prudencial.</p>
+									</div>
+								</div>
+						
+								<!-- de Borda -->
+								<div class="timeline-item" data-year="1781">
+									<img src="https://mathshistory.st-andrews.ac.uk/Biographies/Borda/borda.jpg" alt="de Borda" class="timeline-image">
+									<p class="timeline-caption">de Borda</p>
+									<div class="info-card">
+										<h4>1781 - de Borda</h4>
+										<p>Rankings resumidos.</p>
+									</div>
+								</div>
+						
+								<!-- Condorcet -->
+								<div class="timeline-item" data-year="1785">
+									<img src="https://www.worldhistory.org/img/r/p/500x600/15428.jpg?v=1666433763" alt="Condorcet" class="timeline-image">
+									<p class="timeline-caption">Condorcet</p>
+									<div class="info-card">
+										<h4>1785 - Condorcet</h4>
+										<p>Decisiones mayoritarias.</p>
+									</div>
+								</div>
+									<!-- Francis Edgeworth -->
+<div class="timeline-item" data-year="1881">
+    <img src="https://mathshistory.st-andrews.ac.uk/Biographies/Edgeworth/Edgeworth_2.jpeg" alt="Francis Edgeworth" class="timeline-image">
+    <p class="timeline-caption">Francis Edgeworth</p>
+    <div class="info-card">
+        <h4>1881 - Francis Edgeworth</h4>
+        <p>Caja Edgeworth.</p>
+    </div>
+</div>
+
+<!-- Cantor -->
+<div class="timeline-item" data-year="1895-1897">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Georg_Cantor2.jpg" alt="Georg Cantor" class="timeline-image">
+    <p class="timeline-caption">Georg Cantor</p>
+    <div class="info-card">
+        <h4>1895-1897 - Georg Cantor</h4>
+        <p>Espacios ordenados en dimensiones infinitas.</p>
+    </div>
+</div>
+
+<!-- Hausdorff -->
+<div class="timeline-item" data-year="1906">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSayf4NgDVeYliQAZADG-R4nVGJ6cK8jvtdjef1G1hnBA&s" alt="Felix Hausdorff" class="timeline-image">
+    <p class="timeline-caption">Felix Hausdorff</p>
+    <div class="info-card">
+        <h4>1906 - Felix Hausdorff</h4>
+        <p>Primer ejemplo de un ordenamiento completo.</p>
+    </div>
+</div>
+
+<!-- Vilfredo Pareto -->
+<div class="timeline-item" data-year="1906">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vilfredo_Pareto_1870s2.jpg" alt="Vilfredo Pareto" class="timeline-image">
+    <p class="timeline-caption">Vilfredo Pareto</p>
+    <div class="info-card">
+        <h4>1906 - Vilfredo Pareto</h4>
+        <p>Eficiencia de Pareto en cajas Edgeworth.</p>
+    </div>
+</div>
+
+<!-- Frank P. Ramsey -->
+<div class="timeline-item" data-year="1926">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/30._Frank_Ramsey.jpg" alt="Frank P. Ramsey" class="timeline-image">
+    <p class="timeline-caption">Frank P. Ramsey</p>
+    <div class="info-card">
+        <h4>1926 - Frank P. Ramsey</h4>
+        <p>Primer conjunto de axiomas para selección de alternativas con pagos inciertos (modelo de utilidad subjetiva).</p>
+    </div>
+</div>
+
+
+						</section>
+						
+
+
 				<section data-transition="zoom" data-background="#003865">
 					<h3>La universidad</h3>
 					<div class="r-stack">
@@ -636,9 +921,29 @@
 		<script src="plugin/embed-tweet/plugin.js"></script>
 		<script type="text/javascript" src="https://www.tecnivoro.com/wp-includes/js/wp-embed.min.js?ver=5.8.1" id="wp-embed-js"></script>
 		<script src="https://balkan.app/js/OrgChart.js"></script>
+		<script src="https://unpkg.com/gsap@3.5.1/dist/gsap.min.js"></script>
+		<script src="https://unpkg.com/gsap@3.5.1/dist/ScrollTrigger.min.js"></script>
+
+
 
 </script>
-	   
+<script>
+	Reveal.addEventListener('slidechanged', function(event) {
+    // Verifica si la diapositiva actual contiene la línea de tiempo
+    if (event.currentSlide.querySelector('.timeline')) {
+        // Anima los elementos de la línea de tiempo
+        gsap.from('.timeline-item', {
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            stagger: 0.3, // Retraso entre cada animación de elemento
+            ease: 'power2.out'
+        });
+    }
+});
+
+
+	</script>
 		
 		
 		<script>
@@ -751,6 +1056,8 @@ var chart = new OrgChart(document.getElementById("tree"), {
         });    
 
 </script>		
+
+
 
 			
 	</body>
